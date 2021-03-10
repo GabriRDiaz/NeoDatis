@@ -48,11 +48,15 @@ public class NeoDatisUtils {
 		Objects<Empleados> emp = odb.getObjects(query);
 		
 		for(Empleados emps:emp) {
-
-			//ICriterion crit = Where.equal("departamento", emps.getDepartamento());
+			IQuery query = new CriteriaQuery(Departamentos.class, Where.equal("codigoD", emps.getDepartamento()));
+			Objects<Departamentos> deptos = odb.getObjects(query);
 			System.out.println("Código: "+emps.getCodigoE()+"\nNombre: "
-					+emps.getNombreE()+"\nApellidos: "+emps.getApellidos()+"\n"+"\n*-------------------*");
+					+emps.getNombreE()+"\nApellidos: "+emps.getApellidos()+"\nDepartamento: "+deptos.getFirst().getNombreD()+"\n*-------------------*");
 		}
 		System.out.println("---------------------------------------");
+	}
+	
+	public static void makeQueries() {
+		
 	}
 }
