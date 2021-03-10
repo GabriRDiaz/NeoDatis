@@ -11,9 +11,11 @@ public class Main {
 	static ArrayList<Empleados> empleados = new ArrayList<Empleados>();
 	static ArrayList<Departamentos> departamentos = new ArrayList<Departamentos>();
 	public static void main(String[] args) throws IOException {
-		info = ReadCsv.read();
+		/*info = ReadCsv.read();
 		departamentos = (ArrayList<Departamentos>) info[0];
 		empleados = (ArrayList<Empleados>) info[1];
 		NeoDatisUtils.saveInfo(departamentos,empleados);
+	*/
+		NeoDatisUtils.showInfo();
 	}
 }
