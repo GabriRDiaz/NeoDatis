@@ -16,6 +16,7 @@ public class Main {
 		empleados = (ArrayList<Empleados>) info[1];
 		NeoDatisUtils.saveInfo(departamentos,empleados);
 	*/
-		NeoDatisUtils.showInfo();
+//		NeoDatisUtils.showInfo();
+		NeoDatisUtils.makeQueries();
 	}
 }
