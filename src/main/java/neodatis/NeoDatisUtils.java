@@ -70,19 +70,19 @@ public class NeoDatisUtils {
 		Values value = odb.getValues(new ValuesCriteriaQuery(cQuery).count("nombreE"));
 		ObjectValues ov= value.nextValues();
 		BigInteger num = (BigInteger)ov.getByAlias("nombreE");
-		System.out.println("Número empleados ventas: "+num);
+		System.out.println("Número empleados QA: "+num);
 	
 		//Empleados por depto
 		
 		cQuery = new CriteriaQuery(Empleados.class);
 		CriteriaQuery cQueryEmp;
 		emp = odb.getObjects(cQuery);
-
-			Values valores = odb.getValues(new
-			ValuesCriteriaQuery(Empleados.class).count("nombreE").groupBy("departamento"));
-			for(int i=0;i<valores.size();i++) {
+		Objects<Departamentos> dep = odb.getObjects(new CriteriaQuery(Departamentos.class));
+		Values valores = odb.getValues(new
+			ValuesCriteriaQuery(Empleados.class).count("nombreE").groupBy("departamento"));	
+		for(Departamentos deps:dep) {
 				ov=valores.next();
-				System.out.println("Departamento " +(i+1)+": " +ov.getByIndex(0));
+				System.out.println("Departamento "+deps.getNombreD()+": " +ov.getByIndex(0));
 			}
 	
 	}
